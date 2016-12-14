@@ -56,11 +56,13 @@ namespace Interview_Test.Controllers
             return View(task);
         }
         [HttpPost]
-        public async Task<ActionResult> Detail(TaskItem task)
+        public async Task<ActionResult> Save(TaskItem task)
         {
             bool updated = await taskClient.Update(task);
             return RedirectToAction("Index");
         }
+
+       
 
     }
 }

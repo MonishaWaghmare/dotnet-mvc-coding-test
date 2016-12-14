@@ -14,6 +14,8 @@ namespace Interview_Test.ViewModel
         public IEnumerable<TaskItem> TaskList
         { get; set; }
 
+        public TaskItem DependentTask { get; set; }
+
         public IndexViewModel()
         {
             // Instantiate TaskItem ready to be populated if required

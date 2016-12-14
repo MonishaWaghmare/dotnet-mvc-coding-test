@@ -60,11 +60,17 @@ namespace TaskAPI.Controllers
             return CreatedAtRoute("GetTaskById", id.ToString(), task);
         }
 
-        [HttpPut]
         public IHttpActionResult UpdateTask(TaskItem task)
-        {
-            // Needs to be implemented using existing calls
-            throw new NotImplementedException();
+        {        [HttpPut]
+
+            if (task == null)
+            {
+                return BadRequest("Task not received");
+            }
+
+            taskService.UpdateTask(task);
+
+            return CreatedAtRoute("GetTaskById", task.Id.ToString(), task);
         }
 
     }
